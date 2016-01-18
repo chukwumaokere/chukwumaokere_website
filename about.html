@@ -23,6 +23,8 @@
   <link rel="stylesheet" type="text/css" href="../dist/components/segment.css">
   <link rel="stylesheet" type="text/css" href="../dist/components/dropdown.css">
   <link rel="stylesheet" type="text/css" href="../dist/components/icon.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/transition.css">
+  <link rel="icon" href="./assets/images/favicon.ico">
 
   <style type="text/css">
   body {
@@ -42,6 +44,25 @@
     padding: 5em 0em;
   }
   </style>
+  
+  <!-- Fade Transition -->
+  <script src="assets/library/jquery.min.js"></script>
+  <script src="../dist/components/transition.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+	    // to fade in on page load
+	    $("body").css("display", "none");
+	    $("body").fadeIn(1000); 
+	    // to fade out before redirect
+	    $('a').click(function(e){
+	        redirect = $(this).attr('href');
+	        e.preventDefault();
+	        $('body').fadeOut(1000, function(){
+	            document.location.href = redirect
+	        });
+	    });
+	})
+</script>
 
 </head>
 <body>
@@ -96,6 +117,7 @@
         </div>
       </div>
       <a class="item" target="_blank" href="https://www.linkedin.com/in/chukwuma-okere-48163b112">LinkedIn</a>
+      <a class="item" target="_blank" href="wordpress.chukwumaokere.com">Blog</a>
       <a class="item" target="_blank" href="https://github.com/chukwumaokere/">GitHub</a>
       <a class="item" target="_blank" href="https://www.youtube.com/user/TheAlphaGames">YouTube</a>
     </div>
@@ -105,13 +127,18 @@
   
 
   <div class="ui raised very padded text container segment">
-    <h1 class="ui header">About Me</h1>
-    <img src="./assets/images/1.png" alt="Picture of Chukwuma Okere" style="float:right;width:150px;height:150px">
-    <p>Web developing by day, still developing at night.</p>
-     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id aliquet diam. Sed vel diam et tellus dignissim varius. Ut ac volutpat massa. Duis quis velit id libero ultrices sagittis auctor et ipsum. Nunc a metus lectus. Nulla diam nisl, consequat et eleifend in, facilisis nec massa. Curabitur maximus laoreet quam a feugiat. Vestibulum lacinia sit amet mi eu dignissim. Vestibulum aliquet eros a enim suscipit, at sollicitudin lorem ultrices. Aenean quam libero, interdum at dolor eget, iaculis condimentum nibh. Vestibulum eu laoreet est. Sed suscipit enim nec aliquam aliquam. Aliquam sed nisi arcu. Vivamus auctor dictum elit.</p>
+    <div><h1 class="ui header">About Me</h1>
+    <img src="./assets/images/1.png" alt="Picture of Chukwuma Okere" style="float:right;width:150px;height:150px"></div>
+    <div><h3>Web developing by day, still developing at night.</h3>
+     <p>Update Test: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id aliquet diam. Sed vel diam et tellus dignissim varius. Ut ac volutpat massa. Duis quis velit id libero ultrices sagittis auctor et ipsum. Nunc a metus lectus. Nulla diam nisl, consequat et eleifend in, facilisis nec massa. Curabitur maximus laoreet quam a feugiat. Vestibulum lacinia sit amet mi eu dignissim. Vestibulum aliquet eros a enim suscipit, at sollicitudin lorem ultrices. Aenean quam libero, interdum at dolor eget, iaculis condimentum nibh. Vestibulum eu laoreet est. Sed suscipit enim nec aliquam aliquam. Aliquam sed nisi arcu. Vivamus auctor dictum elit.</p>
      <p>Curabitur quis tortor vel leo feugiat accumsan at eu arcu. Aliquam tincidunt tellus in massa faucibus, id porta nulla varius. Nullam posuere justo molestie ultricies vestibulum. Mauris eget sapien pulvinar, ultrices erat nec, ultricies tortor. Phasellus semper euismod ipsum, vel tempor lectus. Donec sit amet pellentesque eros, at placerat mauris. Donec eget odio dapibus, auctor mauris in, consectetur lectus. Nam vulputate orci dictum metus luctus tristique. Nam non fermentum nisl. Morbi quis leo tristique, venenatis ipsum ut, interdum est.</p>
+   	</div>
+   	
+   <!-- place holders
     <img class="wireframe" src="assets/images/wireframe/paragraph.png">
     <img class="wireframe" src="assets/images/wireframe/paragraph.png">
+     -->
+     
   </div>
 
 

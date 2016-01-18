@@ -25,6 +25,7 @@
   <link rel="stylesheet" type="text/css" href="../dist/components/icon.css">
   <link rel="stylesheet" type="text/css" href="../dist/components/sidebar.css">
   <link rel="stylesheet" type="text/css" href="../dist/components/transition.css">
+  <link rel="icon" href="./assets/images/favicon.ico">
 
   <style type="text/css">
 
@@ -142,21 +143,38 @@
 
     });
   </script>
+  
+  <!-- Fade Animation -->
+  <script type="text/javascript">
+  		$(document).ready(function(){
+	    // to fade in on page load
+	    $("body").css("display", "none");
+	    $("body").fadeIn(2000); 
+	    // to fade out before redirect
+	    $('a').click(function(e){
+	        redirect = $(this).attr('href');
+	        e.preventDefault();
+	        $('body').fadeOut(1000, function(){
+	            document.location.href = redirect
+	        });
+	    });
+	})</script>
+	
 </head>
 <body>
 
 <!-- Following Menu -->
 <div class="ui large top fixed hidden menu">
   <div class="ui container">
-    <a class="active item">Home</a>
+    <i class="active item">Home</i>
     <div class="right menu">About Me</div>
   </div>
 </div>
 
 <!-- Sidebar Menu -->
 <div class="ui vertical inverted sidebar menu">
-  <a class="active item">Home</a>
-  <a class="active item">About Me</a>
+  <i class="active item">Home</i>
+  <a href="about.html" class="active item">About Me</a>
 
 </div>
 
@@ -167,10 +185,10 @@
 
     <div class="ui container">
       <div class="ui large secondary inverted pointing menu">
-        <a class="toc item">
+        <i class="toc item">
           <i class="sidebar icon"></i>
-        </a>
-        <a class="active item">Home</a>
+        </i>
+        <i class="active item">Home</i>
         <a href="./about.html" class="item">About Me</a>
       </div>
     </div>
