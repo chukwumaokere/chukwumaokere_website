@@ -1,25 +1,37 @@
 <?php
-/*
-include  'contactme.html';
-$name=$_POST['name'];
-$email_from = $_POST['email'];
-$comment=$_POST['comment'];
+require 'PHPMailer/PHPMailerAutoload.php';
 
-$email_to = "chuwkumamokere@yahoo.com";
+$comment = $_POST['comment'];
+$email = $_POST['email'];
+$name = $_POST['name'];
 
-$email_subject = "Contact from chukwumaokere.com";
+$mail = new PHPMailer;
 
-$email_message = "Form details below.\n\n";
-$email_message .= "First Name: ".clean_string($name)."\n";
-$email_message .= "Email: ".clean_string($email_from)."\n";
-$email_message .= "Comment: ".clean_string($comment)."\n";
+//$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
-$headers = 'From: '.$email_from."\r\n".
+$mail->isSMTP();                                      // Set mailer to use SMTP
+$mail->Host = 'smtp.mail.yahoo.com';  // Specify main and backup SMTP servers
+$mail->SMTPAuth = true;                               // Enable SMTP authentication
+$mail->Username = 'chukwumaokere@Yahoo.com';                 // SMTP username
+$mail->Password = 'Chuck2548';                           // SMTP password
+$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+$mail->Port = 465;                                    // TCP port to connect to
 
-		'Reply-To: '.$email_from."\r\n" .
+$mail->setFrom('chukwumaokere@yahoo.com', $email);
+$mail->addAddress('chukwumaokere@yahoo.com', 'Me');     // Add a recipient
 
-		'X-Mailer: PHP/' . phpversion();
+$mail->addReplyTo($email, $name);
 
-mail($email_to, $email_subject, $email_message, $headers);
-*/
-header("location:./thankyoucontact.html");
+
+$mail->isHTML(true);                                  // Set email format to HTML
+
+$mail->Subject = 'Contact from chukwumaokere.com';
+$mail->Body    = $comment;
+$mail->AltBody = $comment;
+
+if(!$mail->send()) {
+	echo 'Message could not be sent.';
+	echo 'Mailer Error: ' . $mail->ErrorInfo;
+} else {
+	header("location:./thankyoucontact.html");
+}
