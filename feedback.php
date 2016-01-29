@@ -26,8 +26,8 @@ $mail->addReplyTo($email, $name);
 $mail->isHTML(true);                                  // Set email format to HTML
 
 $mail->Subject = 'Feedback from chukwumaokere.com';
-$mail->Body    = $comment;
-$mail->AltBody = $comment;
+$mail->Body    = 'Name: ' . $name . "<br>\n" . 'Email: ' . $email . "<br>\n" . 'Comment: ' . $comment;
+$mail->AltBody = 'Name: ' . $name . "<br>\n" . 'Email: ' . $email . "<br>\n" . 'Comment: ' . $comment;
 
 if(!$mail->send()) {
 	echo 'Message could not be sent.';
